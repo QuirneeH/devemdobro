@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+/* importação de fonts */
+@font-face {
+    font-family: "GOT";
+    src: url(../fonts/GOT.ttf);
+}
+
+body {
+    font-family: 'Poppins';
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* IMAGENS */
+.carrossel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.imagem {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    display: none;
+}
+
+.imagem.ativa {
+    display: block;
+    animation: mudarImagem .7s;
+}
+
+@keyframes mudarImagem {
+    from {
+        opacity: .85;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* DESCRIÇÃO */
+.informacoes {
+    display: none;
+}
+
+/* classes com multi nomes */
+.informacoes.ativa {
+    display: block;
+}
+
+
+.conteudo {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 100vh;
+}
+
+.informacoes h1 {
+    /* background-color: black; */
+    font-size: 35px;
+    color: #ffffff;
+    margin-bottom: 80px;
+    font-family: 'GOT';
+    letter-spacing: 8px;
+}
+
+.informacoes .descricao {
+    width: 50vh;
+    font-size: 24px;
+    color: #ffffff;
+    line-height: 25px;
+
+    /* config para muito texto */
+    height: 300px;
+    overflow: auto;
+    padding-right: 15px;
+}
+
+/* BOTÕES */
+.botoes-carrossel {
+    display: flex;
+    /* outra maneira de usar space-between */
+    justify-content: center;
+    gap: 20px;
+}
+
+.botoes-carrossel .botao {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    cursor: pointer;
+}
+
+.botoes-carrossel .botao.selecionado {
+    background-color: #000000;
+}
+
+/* GRADIENT */
+main::after {
+    background-color: yellow;
+    content: "";
+    min-height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(120deg, rgba(0, 0, 0, 1) 10%,
+            rgba(0, 0, 0, 0.05926120448179273) 50%,
+            rgba(0, 0, 0, 1) 90%);
+    z-index: -1;
+}
